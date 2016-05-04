@@ -1,0 +1,8 @@
+/.bundle
+/build
+/.sass-cache
+/.cache
+/.tmp
+/vendor/bundle
+/node_modules
+
