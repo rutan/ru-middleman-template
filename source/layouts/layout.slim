@@ -1,13 +1,24 @@
 doctype html
-html
+html itemscope='itemscope' itemtype='http://schema.org/Product'
   head
     meta charset='utf-8'
     meta content='IE=edge' http-equiv='X-UA-Compatible'
     meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
-    title
-      = (current_page.data.title || 'Title')
+    title = page_title
+    meta content='website' property='og:type'
+    meta property='twitter:site' content=(current_page.data.twitter || '@ru_shalm')
+    meta property='twitter:card' content='summary_large_image'
+    meta itemprop='name' property='og:site_name' content=page_title
+    meta property='twitter:title' content=page_title
+    meta name='description' itemprop='description' content=page_description
+    meta property='twitter:description' content=page_description
+    meta property='og:url' content="#{root_url}#{current_resource.url}"
+    meta property='twitter:url' content="#{root_url}#{current_resource.url}"
+    meta itemprop='image' property='og:image' content="#{root_url}#{current_page.data.og_image || '/og_image.png'}"
+    meta property='twitter:image' content="#{root_url}#{current_page.data.og_image || '/og_image.png'}"
+    link rel='shortcut icon' href=(current_page.data.favicon || '/favicon.ico')
+    link rel='apple-touch-icon' href=(current_page.data.apple_touch_icon || '/apple-touch-icon.png')
     = stylesheet_link_tag(:bundle)
   body class=page_classes
     = yield
     = javascript_include_tag(:bundle)
-

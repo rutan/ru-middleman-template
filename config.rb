@@ -31,8 +31,24 @@ end
 ###
 
 helpers do
-  def ping_helper
-    'pong'
+  def root_url
+    'http://localhost:4567'
+  end
+
+  def site_name
+    'Site Name'
+  end
+
+  def page_title
+    if current_page.data.title
+      "#{current_page.data.title} - #{site_name}"
+    else
+      site_name
+    end
+  end
+
+  def page_description
+    current_page.data.description || ''
   end
 end
 
